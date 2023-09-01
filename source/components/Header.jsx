@@ -1,10 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const options = ["Twenty", "Then", " Five"];
+const options = ["Pizza", "Eggs", "Mett"];
 
 export default function Header({ currentTime, setCurrentTime, setTime }) {
   function handlepress(index) {
-    const newTime = index === 0 ? 20 : index === 1 ? 10 : 5;
+    const newTime = index === 0 ? 15 : index === 1 ? 10 : 5;
     setCurrentTime(index);
     setTime(newTime * 60);
   }

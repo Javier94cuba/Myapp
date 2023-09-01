@@ -10,33 +10,34 @@ import {
 import Header from "./source/components/Header";
 import { useState } from "react";
 import Timer from "./source/components/Timer";
+import Food_description from "./source/components/Food_descrition";
 
-const colors = ["white", "green", "red"];
+const colors = ["#f2e8cf", "#fcbf49", "#bb4430"];
 
 export default function App() {
   const [isWorking, setIsWorking] = useState(false);
-  const [time, setTime] = useState(25 * 60);
+  const [time, setTime] = useState(0 * 60);
   const [isActive, setIsActive] = useState(false);
-  const [currentTime, setCurrentTime] = useState("Twenty" || "Then" || " Five");
+  const [currentTime, setCurrentTime] = useState("");
 
   return (
     <SafeAreaView
       style={[styles.container, { backgroundColor: colors[currentTime] }]}
     >
       <View style={{ paddingTop: Platform.OS === "android" && 30 }}>
-        <Text style={styles.app_name}> Timer App</Text>
+        <Text style={styles.app_name}> Timer App for Cook</Text>
         <Header
           currentTime={currentTime}
           setCurrentTime={setCurrentTime}
           setTime={setTime}
         />
-        <Timer time={time} />
-        <Text style={{ color: "black", fontWeight: "bold" }}>{time}</Text>
-        <TouchableOpacity style={styles.button}>
-          <Text style={{ color: "white", fontWeight: "bold" }}>Start</Text>
-        </TouchableOpacity>
         <StatusBar style="auto" />
       </View>
+      <Food_description currentTime={currentTime} />
+      <Timer time={time} />
+      <TouchableOpacity style={styles.button}>
+        <Text style={{ color: "white", fontWeight: "bold" }}>Start</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -44,14 +45,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    marginTop: 30,
   },
   app_name: {
-    fontSize: 32,
+    fontSize: 30,
     fontWeight: "bold",
-    color: "blue",
-    marginLeft: 100,
-    paddingTop: 20,
+    color: "black",
+    marginLeft: 40,
   },
   button: {
     backgroundColor: "#333333",

@@ -1,25 +1,29 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 
 export default function Timer({ time }) {
   const formattedTime = `${Math.floor(time / 60)
     .toString()
-    .padStart(2, "0")}:${(time % 60).toString().padStart(2, "0")}}`;
+    .padStart(2, "0")}:${(time % 60).toString().padStart(2, "0")}`;
   return (
-    <View style={styles.container}>
-      <Text style={styles.time}>{formattedTime}</Text>
-    </View>
+    <SafeAreaView>
+      <View style={styles.containers}>
+        <Text style={styles.time}>{formattedTime}</Text>
+      </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containers: {
     padding: 15,
-    borderRadius: 15,
-    flex: 0.3,
+    borderRadius: 3,
     justifyContent: "center",
-    backgroundColor: "F2F2F2",
+    alignItems: "center",
   },
   time: {
-    fontSize: 60,
+    color: "black",
+    borderRadius: 13,
+    fontSize: 45,
+    fontWeight: "bold",
   },
 });
