@@ -11,14 +11,14 @@ const food = [
     id: 2,
     foods: "Eggs",
     description: "Evoil eggs to a magnific breakfast.",
-    Image: "./assets/carne.png",
+    Image: "C:Users/Javier/Myapp/assets/carne.png",
   },
 
   {
     id: 3,
     foods: "Mett",
     description: "mett for a good dinner whith some wine.",
-    Image: "./assets/carne.png",
+    Image: "C:Users/Javier/Myapp/assets/carne.png",
   },
 ];
 
@@ -30,12 +30,13 @@ export default function Food_description({ currentTime }) {
           <Text style={styles.food}> {element.foods}</Text>
           <Text> {element.description}</Text>
           <Image
-            source={{ uri: element.Image }}
+            source={{ uri: "C:Users/Javier/Myapp/assets/carne.png" }}
             style={{ height: 34, width: 20 }}
           />
           <Text> {currentTime}</Text>
         </View>
       ))}
+      <Image source={{ uri: "C:Users/Javier/Myapp/assets/carne.png" }}></Image>
     </>
   );
 }
